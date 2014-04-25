@@ -15,10 +15,10 @@ body {
   text-align: left;
   min-height: 100%;
   position: relative;
-}
-
-p {
-  margin: 0.8em 0;
+  max-width: 780px;
+  margin:auto;
+  border: solid 1px lightgray;
+  padding:0;
 }
 
 ul, ol {
@@ -165,7 +165,9 @@ pre {
 }
 
 .src {
-  background: #f0f0f0;
+  background: #D8D8D8;
+  /*background-image:linear-gradient(#E0E0E0, #FFFFFF);*/
+  background-image:linear-gradient(#E4E4E4, #FFFFFF);
   padding: 0.2em 0.5em;
 }
 
@@ -178,35 +180,41 @@ pre {
 /* @group Page Structure */
 
 #content {
-  margin: 0 auto;
-  padding: 0 2em 6em;
+  margin: 0;
+  margin-bottom:6em; /* required because of the footer absolute position */
+  padding:0;
 }
 
 #package-header {
-  background: rgb(41,56,69);
-  border-top: 5px solid rgb(78,98,114);
+  background: rgb(81,100,117);
   color: #ddd;
-  padding: 0.2em;
+  padding: 0.8em;
+  padding-left: 0.1em;
+  padding-right: 0.3em;
   position: relative;
   text-align: left;
+  vertical-align:middle;
 }
 
 #package-header .caption {
   background: url(hslogo-16.png) no-repeat 0em;
   color: white;
-  margin: 0 2em;
+  margin: 0 1em;
   font-weight: normal;
   font-style: normal;
   padding-left: 2em;
+  max-width: 650px;
 }
 
 #package-header a:link, #package-header a:visited { color: white; }
-#package-header a:hover { background: rgb(78,98,114); }
+/*#package-header a:hover { background: rgb(78,98,114); }*/
 
 #module-header .caption {
   color: rgb(78,98,114);
   font-weight: bold;
   border-bottom: 1px solid #ddd;
+  margin-left: 1em;
+  margin-right: 1em;
 }
 
 table.info {
@@ -307,6 +315,10 @@ div#style-menu-holder {
   display: none;
 }
 
+#description h1 {
+   text-align:center;
+}
+
 #synopsis {
   display: none;
 }
@@ -357,11 +369,31 @@ div#style-menu-holder {
   margin-left: 0;
 }
 
+#synopsis .src {
+   background-image: none;
+}
+
 /* @end */
 
 /* @group Main Content */
 
-#interface div.top { margin: 2em 0; }
+#interface {
+   clear:both;
+}
+
+#interface div.top { 
+   margin: 2em 0;
+   border-bottom: solid 1px lightgray;
+   padding-bottom: 0.6em;
+}
+
+#interface h1 {
+   background: rgb(177,202,225);
+   color:white;
+   text-shadow: 1px 1px gray;
+   padding-left: 1em;
+}
+
 #interface h1 + div.top,
 #interface h2 + div.top,
 #interface h3 + div.top,
@@ -373,19 +405,31 @@ div#style-menu-holder {
   float: right;
   color: #919191;
   border-left: 1px solid #919191;
-  background: #f0f0f0;
   padding: 0 0.5em 0.2em;
   margin: 0 -0.5em 0 0.5em;
 }
 
-#interface table { border-spacing: 2px; }
+#interface table {
+   border-spacing: 2px;
+   border-collapse: collapse;
+   empty-cells: hide;
+}
+
 #interface td {
   vertical-align: top;
   padding-left: 0.5em;
 }
+
 #interface td.src {
   white-space: nowrap;
+  background-color: #FFFFFF;
+  background-image: none;
 }
+
+#interface .constructors td.src {
+  border: solid 1px lightgray;
+}
+
 #interface td.doc p {
   margin: 0;
 }
@@ -393,8 +437,25 @@ div#style-menu-holder {
   margin-top: 0.8em;
 }
 
+.subs .src {
+   background-image: none;
+}
+
+.instances .src {
+   border: 0px;
+}
+
 .subs dl {
   margin: 0;
+}
+
+#interface .subs .src {
+   background-color: #FFFFFF;
+}
+
+div.doc p {
+   margin-top: 0.5em;
+   margin-bottom: 0.5em;
 }
 
 .subs dt {
@@ -418,10 +479,6 @@ div#style-menu-holder {
 
 .subs dd p {
   margin: 0;
-}
-
-.top p.src {
-  border-top: 1px solid #ccc;
 }
 
 .subs, .doc {
